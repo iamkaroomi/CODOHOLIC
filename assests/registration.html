@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Organizer Form</title>
+    <style>
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            background-color: rgb(0, 0, 0);
+            color: rgb(217, 233, 223);
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: rgb(255, 255, 255);
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            background-color: rgb(255, 255, 255);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: rgb(255, 255, 255);
+        }
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: rgba(6, 0, 0, 0.99);
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #5e3aee;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 style="text-align: center;">Event Organizer Form</h2>
+
+    <form action="/submit_event" method="post">
+        <label for="organizerName">Organizer Name:</label>
+        <input type="text" id="organizerName" name="organizerName" required>
+
+        <label for="organizerEmail">Organizer Email:</label>
+        <input type="email" id="organizerEmail" name="organizerEmail" required>
+
+        <label for="organizerPhone">Organizer Phone:</label>
+        <input type="tel" id="organizerPhone" name="organizerPhone" required>
+
+        <label for="eventName">Event Name:</label>
+        <input type="text" id="eventName" name="eventName" required>
+
+        <label for="eventDate">Event Date:</label>
+        <input type="date" id="eventDate" name="eventDate" required>
+
+        <label for="eventLocation">Event Location:</label>
+        <input type="text" id="eventLocation" name="eventLocation" required>
+
+        <label for="eventDescription">Event Description:</label>
+        <textarea id="eventDescription" name="eventDescription" rows="4" required></textarea>
+
+        <label for="ticketingOption">Ticketing Option:</label>
+        <select id="ticketingOption" name="ticketingOption" required>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+</html>

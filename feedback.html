@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assests/main.logo.png.jpg ">
+    <title>Codoholics-Code-Create-Conquer</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: grey;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .feedback-container {
+            max-width: 600px;
+            width: 100%;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color:black;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            border: 1px solid black;
+            border-radius: 4px;
+        }
+
+        textarea {
+            height: 150px;
+        }
+
+        .rating-container {
+            margin-bottom: 30px;
+        }
+
+        input[type="radio"] {
+            display: none;
+        }
+
+        label.rating-label {
+            display: inline-block;
+            cursor: pointer;
+            font-size: 24px;
+            color: #ccc;
+        }
+
+        input[type="radio"]:checked+label.rating-label:before {
+            content: ; /* Unicode character for a filled star */
+            color: #FFD700;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .error-message {
+            color: #ff0000;
+            margin-top: 5px;
+        }
+    </style>
+    <link rel="stylesheet" href="feedback.css">
+</head>
+
+<body>
+
+    <div class="feedback-container">
+        <h2>Event Feedback</h2>
+        <p>Thank you for attending our event! We would love to hear your feedback.</p>
+
+        <form id="feedbackForm" action="#" method="post">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Your Email:</label>
+            <input type="text" id="email" name="email" required>
+
+            <div class="rating-container">
+                <label>Rate the event:</label><br>
+                <input type="radio" id="star5" name="rating" value="5" required>
+                <label for="star5" class="rating-label"></label>
+                <input type="radio" id="star4" name="rating" value="4" required>
+                <label for="star4" class="rating-label"></label>
+                <input type="radio" id="star3" name="rating" value="3" required>
+                <label for="star3" class="rating-label"></label>
+                <input type="radio" id="star2" name="rating" value="2" required>
+                <label for="star2" class="rating-label"></label>
+                <input type="radio" id="star1" name="rating" value="1" required>
+                <label for="star1" class="rating-label"></label>
+            </div>
+
+            <label for="feedback">Feedback:</label>
+            <textarea id="feedback" name="feedback" required></textarea>
+
+            <div class="error-message" id="error-message"></div>
+
+            <input type="submit" value="Submit Feedback">
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('feedbackForm').addEventListener('submit', function (event) {
+            // Custom validation for the rating
+            var ratingInputs = document.getElementsByName('rating');
+            var ratingChecked = false;
+
+            for (var i = 0; i < ratingInputs.length; i++) {
+                if (ratingInputs[i].checked) {
+                    ratingChecked = true;
+                    break;
+                }
+            }
+
+            if (!ratingChecked) {
+                document.getElementById('error-message').innerText = 'Please provide a rating.';
+                event.preventDefault();
+            } else {
+                document.getElementById('error-message').innerText = '';
+            }
+        });
+    </script>
+
+</body>
+
+</html>
